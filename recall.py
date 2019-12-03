@@ -4,7 +4,7 @@ import ml_metrics as metrics
 import sys
 import os
 
-
+# input all methods
 file1 = sys.argv[1]
 file2 = sys.argv[2]
 file3 = sys.argv[3]
@@ -48,11 +48,12 @@ k_use = len(id_orth_use.index)
 k_blastf = len(id_orth_blastfast.index)
 
 print ("BLAST")
-#print ("DIAMOND")
-#print ("USEARCH")
-#print ("BLAST_FAST", "k")
-#print ("MMSEQ2")
+print ("DIAMOND")
+print ("USEARCH")
+print ("BLAST_FAST", "k")
+print ("MMSEQ2")
 print ("USE_LOCAL")
+# cases funcions recall pesicion and F1 
 def Precision(x,y):
     if x+y == 0:
        return float(0)
@@ -68,6 +69,7 @@ def F1(x,y):
        return float(0)
     else:
        return 2*(x*y)/(x+y)
+# calculation recall pesicion and F1 
 def TP_FP(x,y):
     TP = 0
     FP = 0
@@ -91,7 +93,7 @@ def stop (x,y,z):
     else:
        return TP_FP(x,y)
 
-
+# statistic for methods
 while n <= 100:
     actual = id_orth_clust.to_list()[:n]
     blat = id_orth_blast.to_list()[:n]
@@ -100,19 +102,19 @@ while n <= 100:
     blastf = id_orth_blastfast.to_list()[:n]
     mmsqq = id_orth_mmseq.to_list()[:n]
     usealoc = id_orth_useloc.to_list()[:n]
-#    bla = stop(actual, blat, n)
-#    dia = stop(actual, diam, n)
-#    use = stop(actual, usee, n)
-#    blaf = stop(actual, blastf, n)
-#    mmsq = stop(actual , mmsqq, n)
+    bla = stop(actual, blat, n)
+    dia = stop(actual, diam, n)
+    use = stop(actual, usee, n)
+    blaf = stop(actual, blastf, n)
+    mmsq = stop(actual , mmsqq, n)
     uselo = stop(actual, usealoc, n)
     n = n + 1
-#    print (use)
-#    print (dia)
-#    print (bla)
-#    print (mmsq)
-#    print (blaf, n-1)
+    print (use)
+    print (dia)
+    print (bla)
+    print (mmsq)
+    print (blaf, n-1)
     print (useloc)
-#    print (bla, k_bla, dia, k_dia, use, k_use, blaf, k_blastf, n-1)
-#  print (dia ,  bla , n-1)
+
+
 
