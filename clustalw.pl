@@ -4,10 +4,10 @@ use strict;
 use Bio::SeqIO;
 use File::Temp qw/ tempfile /;
 
-my $prot_file = $ARGV[0] || die "input prot fasta file not find\n";
+my $prot_file = $ARGV[0] || die "input prot fasta file not find\n"; # takes input protein and ortho goup fasta files
 my $orto_file = $ARGV[1] || die "input prot fasta file not find\n";
 
-my $prot   = Bio::SeqIO->new(-file => $prot_file, -format  => "fasta")->next_seq;
+my $prot   = Bio::SeqIO->new(-file => $prot_file, -format  => "fasta")->next_seq; #combines into one temporary file single protein and otho group sequence
 my $ortoio = Bio::SeqIO->new(-file => $orto_file, -format  => "fasta"); 
 
 while (my $seq = $ortoio->next_seq) {
@@ -18,8 +18,8 @@ while (my $seq = $ortoio->next_seq) {
               ">",$seq->id,"\n",
               $seq->seq,"\n";
 my $id = print $seq->id, "\t";
-my $cmd = "clustalw -MATRIX=BLOSUM -INFILE=$tmp -ALIGN -OUTFILE=/dev/null";
-open F, "$cmd |" || die $!;
+my $cmd = "clustalw -MATRIX=BLOSUM -INFILE=$tmp -ALIGN -OUTFILE=/dev/null"; # clustalW work takes temporary file as input file 
+open F, "$cmd |" || die $!; # parse output file, takes only nessary information
 my ($s1,$s2,$s);
 while (<F>) {
     $s1 = $1 if /Sequence 1: (.+?) /;
