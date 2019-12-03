@@ -16,3 +16,12 @@ The formation of a common base for all Eukaryot orthogroups (uses the combine.sh
 clustalW pair alignment, script clustalw.pl execute pair aligment of proteine sequence with every single correspond ortho group secuence. Scrips form temporary file with single proteine sequence and single sequence from ortho group, next clustalW use this file as output. (clustalW create documents with .dnd.
 The run_clustalw.sh script, parallel obtaining the protein identifier from table 1, passes the findClust.sh script to the script.
 findClust.sh, searching a file with an orthogroup of the corresponding protein identifiers, searching for found files using the clustalw.pl script, solves the problem with files with the .dnd extension (deletes).
+# 5 stage
+BLAST, BLAST fast, Diamond, Usearch (local, ublast) and Mmseq2 alignment.
+config.pm, contains run configurations for every programm BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2.
+id database.pl, builds indexed databases which are necessary for BLAST, BLAST fasta, Diamond и Usearch (local, ublast), Mmseqs2 work.
+test_cfg.pl, executes alignment of proteine sequence against  ortho groups whole database with aplication BLAST, BLAST fasta, Diamond and Usearch (local, ublast), Mmseqs2 methods. Parameters take from config.pm script.
+run_blast.sh, parallel obtaining of the protein identifier from table 1, passes find.sh to the script.
+a database file of all Eukaryot orthogroups, as well as test_cfg.pl protein sequence and an indexed database of all Eukaryot orthogroups. Generates a common file.
+rm.sh, forms as a result of the work of the Diamond program).
+# 6 stage
