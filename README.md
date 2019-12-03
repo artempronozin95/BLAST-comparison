@@ -25,3 +25,13 @@ run_blast.sh, parallel obtaining of the protein identifier from table 1, passes 
 a database file of all Eukaryot orthogroups, as well as test_cfg.pl protein sequence and an indexed database of all Eukaryot orthogroups. Generates a common file.
 rm.sh, forms as a result of the work of the Diamond program).
 # 6 stage
+Statistics, the following metrics were used: APK, MAPK, F1 score.
+APK, MAKP, F1 score: https://towardsdatascience.com/choosing-the-right-metric-is-a-huge-issue-99ccbe73de61
+The metric.py script provides statistics on the APK metric, uses the pandas, numpy, ml_metrics packages, input files are alignment results from the BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2 and clustalW programs. The script selects the columns containing the gene id from each file, loads the given sample into the ml_metrics package, uses clustalW as the actual reference, and BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2 as the studied one (predicted).
+
+The aver.py script provides statistics on the MAPK metric, uses the pandas, numpy, ml_metrics packages, input files are alignment results from the BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2 and clustalW programs. The script selects the columns containing the gene id from each file, loads the given sample into the ml_metrics package, uses clustalW as the actual reference, and BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2 as the studied one (predicted).
+
+The recall.py script provides statistics on the F1 score metric, files of alignment results for the BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2 and clustalW programs are input. The script selects the columns containing the gene identifiers from each file, calculates Precision (accuracy) and Recall (completeness) using the created functions, and calculates the F1 score metric based on the received data. At the output we get 3 charts Precision, Recall, F1 score.
+
+run_Gene.sh, parallel obtaining of protein IDs from table 1, passes findGene.sh to the script.
+findGene.sh, searches for a file with the orthogroup of the corresponding protein ID, transfers the found files to the recall.py, aver.py, metric.py script.
