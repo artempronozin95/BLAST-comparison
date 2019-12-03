@@ -7,11 +7,9 @@ from matplotlib import pyplot as plt
 import os
 from os import listdir
 
-#file1 = sys.argv[1]
-#ort = pd.read_csv(file1, sep=' ')
-K =100
+K =100 
 
-def find_csv_filenames( path_to_dir, suffix=".csv" ):
+def find_csv_filenames( path_to_dir, suffix=".csv" ): # input all files with csv format
     filenames = listdir(path_to_dir)
     return [ filename for filename in filenames if filename.endswith( suffix ) ]
 
@@ -23,15 +21,10 @@ for file in files:
     print (df)
     df_list.append(df)
 df = pd.concat(df_list)
-df.columns = ['n', 'Blast', 'Diamond', 'Usearch', 'Mmseq2', 'UseLocal', 'BlastFast', 'k']
-r = pd.DataFrame(df).groupby(df.k).mean()
+df.columns = ['n', 'Blast', 'Diamond', 'Usearch', 'Mmseq2', 'UseLocal', 'BlastFast', 'k'] # change column name
+r = pd.DataFrame(df).groupby(df.k).mean() # calculate MAPK
 
-
-#base = os.path.basename(file1)
-#base = os.path.splitext(base)[0]
-#prot, no = base.split("_", 1)
-
-f = len(r.index)
+f = len(r.index) # identify column length
 pd.options.display.max_rows = f
 print (r)
 r.to_csv('mean_Pre.csv')
@@ -43,13 +36,7 @@ use = r['Usearch']
 mmseq = r['Mmseq2']
 useloc = r['UseLocal']
 k = r['k']
-
-#b = mean(blast)
-#bf = mean(blastf)
-#d = mean(dia)
-#u = mean(use)
-
-
+# build charts 
 plt.plot(k, blast, color='green', linewidth = 2, label='Blast', alpha=0.4)
 plt.plot(k, dia, color='red', linewidth = 2,  label='Diamond')
 plt.plot(k, use, color='blue', linewidth = 2,  label='Usearch',alpha=0.4)
