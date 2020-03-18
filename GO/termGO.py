@@ -68,11 +68,6 @@ def TP_FP(x,y):
     #return (Pre)
     #return (Sen)
     return (F)
-#def sem_sim(x,y):
-#    for w1 in x:
-#        for w2 in y:
-#            ssim = semantic_similarity(w1 , w2 , godag)
-#    return (ssim)
 mean=[]
 num=[]
 df = pd.read_csv('/storage/pronozinau/bigDATA/GO/odb10v0_gene_xrefs_onlyGO.tab', sep='\t', header=None)
@@ -121,9 +116,6 @@ for file in blat:
                pass
        GOB.extend(d)
        wordB.append(w)
-       #sim = semantic_similarity(GOC,GOB, godag)
-       #print(sim)
-       #test = f1_score(GOC, GOB, average='macro')
        test = TP_FP(GOC,GOB)
        n=n+1
        #print(test)
@@ -131,7 +123,6 @@ for file in blat:
        num.append(n-1)
   except FileNotFoundError:
      continue
-       #print(wordC, wordB, GOC, GOB, test)
 q = open('Mmseq.csv' , 'w')
 writer = csv.writer(q, delimiter='\t')
 writer.writerows(zip(num,mean))
