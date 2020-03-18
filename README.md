@@ -1,6 +1,6 @@
 # BLAST-comparison-
-BLAST comparison with faster programs, like BLAST, BLAST fast, Diamond, Usearch (local and ublast), Mmseq2.
-Include seven stage
+Annotation of the protein sequences by homology search and GO term transfer from highly homologous sequences is an important task for current genome and transcriptome sequencing projects. However, large size of sequence databases make homologous sequence search difficult in reasonable time. There exist tools that apply fast and ultrafast database search algorithms to find sequence homologs. These tools usually apply various heuristics for fast determining possible sequence matches. This result in different results of these programs with respect to returned set of homologous sequences and their rankings. These differences may lead to differences in the sets of GO terms and lead to errors in query sequence function annotation. 
+We compare performance of the highly homologous sequence detection by several fast search tools (BLASTP fast, Diamond, Usearch ublast, Usearch local, Mmseq2) applied for A.thaliana protein sequences represented in OrthoDB database. We compared their results with the sequence ranking obtained by ClustalW program for various number k of returned best hits. 
 # 1 stage:
 Download Arabidopsis thaliana genes from KEGG, example: http://rest.kegg.jp/get/ath:AT1G68120/aaseq (script protein_db.sh).
 run_protein_db.sh execute automatic run.
