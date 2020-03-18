@@ -138,17 +138,13 @@ for file in blat:
                pass
        GOB.extend(d)
        wordB.append(w)
-       #test = f1_score(GOC, GOB, average='macro')
        sim=sim_sem(GOC,GOB)
-       #print(sim)
-       #test = TP_FP(GOC,GOB)
        n=n+1
        #print(test)
        mean.append(sim)
        num.append(n-1)
   except FileNotFoundError:
      continue
-       #print(wordC, wordB, GOC, GOB, test)
 q = open('UseL.csv' , 'w')
 writer = csv.writer(q, delimiter='\t')
 writer.writerows(zip(num,mean))
