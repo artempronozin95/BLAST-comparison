@@ -29,7 +29,7 @@ F1 scripts provides statistics on the F1 score metric, files of alignment result
 run_metric.sh, parallel obtaining of protein IDs from table 1, passes findGene.sh to the script.
 metric.sh, searches for a file with the orthogroup of the corresponding protein ID, transfers the found files to the MAPK or F1 scripts.
 # 7 stage 
-GOfind.py script, used to find GO term for "k" best hits of BLAST, BLAST fasta, Diamond и Usearch (local, ublast), Mmseqs2 and ClustalW. Task is to find poin when number of GO term stand on plato.
+GOfind.py script, used to find GO term for "k" best hits of BLAST, BLAST fasta, Diamond и Usearch (local, ublast), Mmseqs2 and ClustalW. Task, find point when number of GO term stand on plato.
 termGO.py script, finds GO terms for "k" best hits of BLAST, BLAST fasta, Diamond и Usearch (local, ublast), Mmseqs2 and ClustalW. For this GO terms set calculets F1 metric.
 termGO_sem.py script, finds GO terms for "k" best hits of BLAST, BLAST fasta, Diamond и Usearch (local, ublast), Mmseqs2 and ClustalW. For this GO terms set calculets semantic similarity (SS) metric. To calculate SS metric we use goatools packcage (https://github.com/tanghaibao/goatools/blob/master/notebooks/semantic_similarity.ipynb).
 Output file of termGO.py and termGO_sem.py consist computing data for every orthogroup, mean.py script calculate average for every "k".
