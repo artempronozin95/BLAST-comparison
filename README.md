@@ -24,7 +24,7 @@ Statistics, the following metrics were used: APK, MAPK, F1 score.
 APK, MAKP, F1 score: [https://towardsdatascience.com/choosing-the-right-metric-is-a-huge-issue-99ccbe73de61]
 + **MAPK scripts** provides statistics on the MAPK metric, uses the pandas, numpy, ml_metrics packages, input files are alignment results from the BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2 and clustalW programs. The script selects the columns containing the gene id from each file, loads the given sample into the ml_metrics package, uses clustalW as the actual reference, and BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2 as the studied one (predicted).
 + **F1 scripts** provides statistics on the F1 score metric, files of alignment results for the BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2 and clustalW programs are input. The script selects the columns containing the gene identifiers from each file, calculates Precision (accuracy).
-+ **run_metric.sh**, parallel obtaining of protein IDs from table 1, passes **metric.sh** to the script.
++ **run_metric.sh**, parallel obtaining of protein IDs, passes **metric.sh** to the script.
 + **metric.sh**, searches for a file with the orthogroup of the corresponding protein ID, transfers the found files to the MAPK or F1 scripts.
 ## 7 stage 
 + **GOfind.py** script, used to find GO term for "k" best hits of BLAST, BLAST fasta, Diamond и Usearch (local, ublast), Mmseqs2 and ClustalW. Task, find point when number of GO term stand on plato.
