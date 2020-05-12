@@ -18,9 +18,7 @@ The formation of a common base for all orthogroups (uses the **combine.sh** scri
 BLAST, BLAST fast, Diamond, Usearch (local, ublast) and Mmseq2 alignment.
 + **config.pm**, contains run configurations for every programm BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2.
 + **database_build.pl**, builds indexed databases which are necessary for BLAST, BLAST fasta, Diamond и Usearch (local, ublast), Mmseqs2 work.
-+ **methods_run.pl**, executes alignment of proteine sequence against  ortho groups whole database with aplication BLAST, BLAST fasta, Diamond and Usearch (local, ublast), Mmseqs2 methods. Parameters take from config.pm script.
-run_blast.sh, parallel obtaining of the protein identifier from table 1, passes to the script Methods.sh.
-Methods.sh, run id database building for A.thaliana database and for orthogroup database as well as run alignment for all programs.
++ **Methods.sh** , run id database building for A.thaliana database and for orthogroup database as well as run alignment for all programs.
 + **rm.sh**, delete all minor files received after alignment.
 ## 6 stage
 Statistics, the following metrics were used: APK, MAPK, F1 score.
