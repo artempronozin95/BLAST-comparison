@@ -13,6 +13,7 @@ The formation of a common base for all orthogroups (uses the **combine.sh** scri
 + clustalW pair alignment, script **clustalw.pl** execute pair aligment of proteine sequence with every single correspond orthogroup secuence. Scrips form temporary file with single proteine sequence and single sequence from ortho group, next clustalW use this file as output. (clustalW create documents with .dnd.)
 + **run_clustalw.sh** script, parallel obtaining the protein identifier from table 1, passes the findClust.sh script to the script.
 + **ClustalW.sh**, searching a file with an orthogroup of the corresponding protein identifiers, searching for found files using the **clustalw.pl** script, solves the problem with files with the .dnd extension (deletes).
++ **percentage_id.py**, becouse of ClustalW alignment algorithm use a fast approximate alignment method. A similarity score (percent identity) is calculated from each alignment between every pair of sequences . 
 ## 5 stage
 BLAST, BLAST fast, Diamond, Usearch (local, ublast) and Mmseq2 alignment.
 + **config.pm**, contains run configurations for every programm BLAST, BLAST fast, Diamond, Usearch (local, ublast), Mmseq2.
